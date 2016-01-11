@@ -18,15 +18,18 @@ describe DockingStation do
   describe('#dock_bike')
     it {is_expected.to respond_to(:dock_bike).with(1).argument}
 
-    it 'docks working bikes' do
-      bike = Bike.new
-      expect(subject.dock_bike(bike)).to eq bike
-    end
+    # it 'docks working bikes' do
+    #   subject.dock_bike(Bike.new)
+    #   expect(subject.bikes).to include(Bike.new)
+      #
+      # bike = Bike.new
+      # subject.release_bike
+      # expect(subject.dock_bike(bike)).to eq bike
+  
 
     it 'raises an error if no space in docking station' do
-      bike = Bike.new
-      subject.dock_bike(bike)
-      expect{subject.dock_bike(bike)}.to raise_error('No available space in docking station')
+      20.times {subject.dock_bike(Bike.new)}
+      expect{subject.dock_bike(Bike.new)}.to raise_error('No available space in docking station')
     end
 
 end
