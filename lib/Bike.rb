@@ -4,4 +4,8 @@ class Bike
     true
   end
 
+  def docked?
+    true
+  end
+
 end
