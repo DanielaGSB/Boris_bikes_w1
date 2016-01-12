@@ -2,9 +2,10 @@ require 'bike'
 
 describe Bike do
   it 'confirms that bike is working' do
-    expect(subject.working?).to eq true
+    expect(subject).to respond_to :working?
   end
-  it 'is of class Bike' do
-    expect(subject).to be_instance_of Bike
+  it 'allows user to report bike as broken' do
+    subject.report_broken
+    expect(subject).to be_broken
   end
 end
